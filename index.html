@@ -7,17 +7,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
-  body {color:#fff; background:#0d0d0d; overflow-x:hidden;}
+  body {
+    color:#fff; 
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    overflow-x:hidden;
+  }
 
-  /* ===== Фоновый меч с параллаксом и плавным свечением ===== */
+  /* ===== Фоновый меч с параллаксом и свечением ===== */
   #sword-bg {
     position: fixed;
-    top: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(0);
-    width: 100%;
-    height: 150%;
-    background: url('9fd952b3-fb4a-4c8b-a288-75df1921efb5.png') center top/cover no-repeat;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100vh;
+    max-width: 600px;
+    background: url('9fd952b3-fb4a-4c8b-a288-75df1921efb5.png') center center/contain no-repeat;
     z-index: -1;
     pointer-events: none;
     filter: drop-shadow(0 0 30px #ff6ec7) drop-shadow(0 0 50px #1c92d2);
@@ -190,7 +195,7 @@
   const sword = document.getElementById('sword-bg');
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
-    sword.style.transform = `translateX(-50%) translateY(${scrolled * 0.4}px)`;
+    sword.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.4}px))`;
   });
 
   // Анимация появления карточек
