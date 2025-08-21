@@ -6,120 +6,128 @@
 <title>IBMPARTNERSHIP</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-  body{color:#fff;overflow-x:hidden;background:#0d0d0d;}
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
+  body {color:#fff; background:#0d0d0d; overflow-x:hidden;}
 
-  /* ===== Фоновый меч на всю страницу ===== */
-  body::before{
-    content:"";
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:url('avatar-sword.jpg') center center/cover no-repeat;
-    z-index:-1;
-    pointer-events:none;
-    /* фиксируем меч, чтобы он "следовал" за скроллом */
-    background-attachment:fixed;
+  /* ===== Фоновый меч с параллакс эффектом ===== */
+  #sword-bg {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 150%;
+    background: url('avatar-sword.jpg') center top/cover no-repeat;
+    z-index: -1;
+    pointer-events: none;
   }
 
   /* ===== Хедер ===== */
-  header{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+  header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
     background: rgba(0,0,0,0.5);
   }
 
-  header h1{
-    font-size:3rem;
-    margin-bottom:20px;
-    color:#ff6ec7;
-    text-shadow:0 0 20px rgba(255,110,199,0.5);
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff6ec7;
+    text-shadow: 0 0 20px rgba(255,110,199,0.5);
   }
 
-  header p{
-    font-size:1.5rem;
-    margin-bottom:30px;
-    max-width:800px;
-    line-height:1.5;
+  header p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    line-height: 1.5;
   }
 
-  .btn{
-    padding:15px 40px;
-    font-size:1.2rem;
-    background:#ff6ec7;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.3s;
+  .btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: #ff6ec7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
   }
 
-  .btn:hover{transform:scale(1.1);background:#1c92d2;color:#fff;}
+  .btn:hover {
+    transform: scale(1.1);
+    background: #1c92d2;
+    color: #fff;
+  }
 
   /* ===== Секції ===== */
-  section{
-    padding:80px 20px;
-    text-align:center;
+  section {
+    padding: 80px 20px;
+    text-align: center;
     background: rgba(0,0,0,0.5);
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 
-  section h2{
-    font-size:2.8rem;
-    margin-bottom:20px;
-    background:linear-gradient(90deg,#ff6ec7,#1c92d2,#fcb045);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+  section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg,#ff6ec7,#1c92d2,#fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  section p{
-    font-size:1.2rem;
-    max-width:800px;
-    margin:0 auto;
-    line-height:1.6;
-    color:#ccc;
+  section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #ccc;
   }
 
   /* ===== Карточки ===== */
-  .cards{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-    margin-top:50px;
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
   }
 
-  .card{
-    background:linear-gradient(145deg,#1c1c1c,#2c2c2c);
-    border-radius:20px;
-    padding:30px;
-    width:280px;
-    cursor:pointer;
-    transition:0.5s;
-    transform:translateY(50px);
-    opacity:0;
-    box-shadow:0 0 20px rgba(255,110,199,0.2),0 0 40px rgba(28,146,210,0.2);
+  .card {
+    background: linear-gradient(145deg,#1c1c1c,#2c2c2c);
+    border-radius: 20px;
+    padding: 30px;
+    width: 280px;
+    cursor: pointer;
+    transition: 0.5s;
+    transform: translateY(50px);
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(255,110,199,0.2),0 0 40px rgba(28,146,210,0.2);
   }
 
-  .card h3{margin-bottom:10px;font-size:1.4rem;color:#fff;}
-  .card p{font-size:1rem;color:#bbb;}
-  .card:hover{transform:translateY(-15px) scale(1.05);box-shadow:0 0 30px rgba(255,110,199,0.6),0 0 60px rgba(28,146,210,0.6);}
+  .card h3 {margin-bottom: 10px; font-size: 1.4rem; color: #fff;}
+  .card p {font-size: 1rem; color: #bbb;}
+  .card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 0 30px rgba(255,110,199,0.6),0 0 60px rgba(28,146,210,0.6);
+  }
 
   /* ===== Контакти ===== */
-  footer{
+  footer {
     background: rgba(0,0,0,0.5);
-    padding:40px 20px;
-    text-align:center;
+    padding: 40px 20px;
+    text-align: center;
   }
-  footer p{
-    font-size:1.2rem;
-    color:#ff6ec7;
-    font-weight:bold;
+
+  footer p {
+    font-size: 1.2rem;
+    color: #ff6ec7;
+    font-weight: bold;
   }
 
   /* ===== Адаптив ===== */
@@ -133,6 +141,8 @@
 </style>
 </head>
 <body>
+
+<div id="sword-bg"></div>
 
 <header>
   <h1>Вже більше 30 менеджерів у команді — а ти чому чекаєш?</h1>
@@ -167,10 +177,17 @@
 </footer>
 
 <script>
-  // Анімація появи карток
+  // Параллакс эффект меча при скролле
+  const sword = document.getElementById('sword-bg');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    sword.style.transform = `translate(-50%, ${scrolled * 0.5}px)`;
+  });
+
+  // Анимация появления карточек
   const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if(entry.isIntersecting){
         entry.target.style.transform='translateY(0)';
         entry.target.style.opacity='1';
