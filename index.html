@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IBMPARTNERSHIP</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Orbitron', sans-serif;}
   body {
     color:#fff; 
     background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
@@ -21,10 +21,10 @@
     transform: translate(-50%, -50%);
     width: auto;
     height: 90vh;
-    max-width: 150px;
+    max-width: 200px;
     z-index: -1;
     pointer-events: none;
-    filter: drop-shadow(0 0 20px #ff6ec7) drop-shadow(0 0 40px #1c92d2);
+    filter: drop-shadow(0 0 30px #ff6ec7) drop-shadow(0 0 50px #1c92d2);
     transition: transform 0.1s linear;
   }
 
@@ -37,14 +37,14 @@
     align-items: center;
     text-align: center;
     padding: 20px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
   }
 
   header h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #ff6ec7;
-    text-shadow: 0 0 20px rgba(255,110,199,0.5),0 0 40px rgba(28,146,210,0.5);
+    text-shadow: 0 0 20px #ff6ec7, 0 0 40px #1c92d2;
     animation: glow 2s infinite alternate;
   }
 
@@ -81,7 +81,7 @@
   section {
     padding: 80px 20px;
     text-align: center;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
     margin-bottom: 20px;
   }
 
@@ -132,7 +132,7 @@
 
   /* ===== Контакти ===== */
   footer {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
     padding: 40px 20px;
     text-align: center;
   }
@@ -143,7 +143,6 @@
     font-weight: bold;
   }
 
-  /* ===== Адаптив ===== */
   @media(max-width:768px){
     header h1{font-size:2rem;}
     header p{font-size:1.1rem;}
@@ -155,23 +154,31 @@
 </head>
 <body>
 
-<!-- ===== Фоновый меч (SVG реалистичный) ===== -->
+<!-- ===== Фоновый меч (эпичный SVG) ===== -->
 <div id="sword-bg">
   <svg viewBox="0 0 64 256" xmlns="http://www.w3.org/2000/svg">
     <!-- Клинок -->
-    <polygon points="32,0 36,200 28,200" fill="url(#bladeGradient)" />
     <defs>
-      <linearGradient id="bladeGradient" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <linearGradient id="bladeGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
         <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.6"/>
       </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
     </defs>
+    <polygon points="32,0 36,200 28,200" fill="url(#bladeGrad)" filter="url(#glow)"/>
     <!-- Крестовина -->
-    <rect x="16" y="200" width="32" height="8" fill="#555" rx="2" />
+    <rect x="14" y="200" width="36" height="8" rx="2" fill="#555"/>
+    <rect x="14" y="200" width="36" height="8" rx="2" fill="url(#bladeGrad)" opacity="0.4"/>
     <!-- Рукоять -->
-    <rect x="28" y="208" width="8" height="40" fill="#333" rx="2"/>
-    <!-- Рукоять с подсветкой -->
-    <circle cx="32" cy="248" r="4" fill="#ff6ec7" />
+    <rect x="28" y="208" width="8" height="40" rx="2" fill="#333"/>
+    <!-- Рукоять с магическим сиянием -->
+    <circle cx="32" cy="248" r="5" fill="#ff6ec7" filter="url(#glow)"/>
   </svg>
 </div>
 
@@ -208,14 +215,12 @@
 </footer>
 
 <script>
-  // Параллакс эффект меча при скролле
   const sword = document.getElementById('sword-bg');
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     sword.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.4}px))`;
   });
 
-  // Анимация появления карточек
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
