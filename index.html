@@ -7,64 +7,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-  body{background:#0d0d0d;color:#fff;overflow-x:hidden;}
+  body{color:#fff;overflow-x:hidden;background:#0d0d0d;}
 
-  /* ===== Фонове зображення меча ===== */
+  /* ===== Фоновий меч на всю сторінку ===== */
   body::before{
     content:"";
-    position:fixed;top:0;left:0;width:100%;height:100%;
-    background:url('avatar-sword.jpg') center center/cover no-repeat;
-    opacity:0.1; /* напівпрозоре, щоб не заважало тексту */
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:url('avatar-sword.jpg') center top/cover no-repeat;
     z-index:-1;
   }
 
   /* ===== Хедер ===== */
   header{
-    height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-    background: linear-gradient(-45deg,#1c1c1c,#2c2c2c);
-    position: relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
     padding:20px;
+    background: rgba(0,0,0,0.5); /* напівпрозорий чорний для контрасту */
   }
 
   header h1{
-    font-size:4rem;margin-bottom:20px;color:#ff6ec7;
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#ff6ec7;
     text-shadow:0 0 20px rgba(255,110,199,0.5);
   }
+
   header p{
-    font-size:1.5rem;margin-bottom:30px;max-width:800px;line-height:1.5;
-    color:#fff;
+    font-size:1.5rem;
+    margin-bottom:30px;
+    max-width:800px;
+    line-height:1.5;
   }
 
   .btn{
-    padding:15px 40px;font-size:1.2rem;background:#ff6ec7;color:#fff;border:none;border-radius:12px;cursor:pointer;
+    padding:15px 40px;
+    font-size:1.2rem;
+    background:#ff6ec7;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
     transition:0.3s;
   }
+
   .btn:hover{transform:scale(1.1);background:#1c92d2;color:#fff;}
 
-  /* ===== Секции ===== */
-  section{padding:80px 20px;text-align:center;}
-  section h2{font-size:3rem;margin-bottom:20px;background:linear-gradient(90deg,#ff6ec7,#1c92d2,#fcb045);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  section p{font-size:1.2rem;max-width:800px;margin:0 auto;line-height:1.6;color:#ccc;}
+  /* ===== Секції ===== */
+  section{
+    padding:80px 20px;
+    text-align:center;
+    background: rgba(0,0,0,0.5); /* прозорий фон */
+    margin-bottom:20px;
+  }
+
+  section h2{
+    font-size:2.8rem;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#ff6ec7,#1c92d2,#fcb045);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  section p{
+    font-size:1.2rem;
+    max-width:800px;
+    margin:0 auto;
+    line-height:1.6;
+    color:#ccc;
+  }
 
   /* ===== Карточки ===== */
-  .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:50px;}
+  .cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    margin-top:50px;
+  }
+
   .card{
-    background:linear-gradient(145deg,#1c1c1c,#2c2c2c);border-radius:20px;padding:30px;width:280px;
-    cursor:pointer;transition:0.5s;transform:translateY(50px);opacity:0;
+    background:linear-gradient(145deg,#1c1c1c,#2c2c2c);
+    border-radius:20px;
+    padding:30px;
+    width:280px;
+    cursor:pointer;
+    transition:0.5s;
+    transform:translateY(50px);
+    opacity:0;
     box-shadow:0 0 20px rgba(255,110,199,0.2),0 0 40px rgba(28,146,210,0.2);
   }
+
   .card h3{margin-bottom:10px;font-size:1.4rem;color:#fff;}
   .card p{font-size:1rem;color:#bbb;}
   .card:hover{transform:translateY(-15px) scale(1.05);box-shadow:0 0 30px rgba(255,110,199,0.6),0 0 60px rgba(28,146,210,0.6);}
 
   /* ===== Контакти ===== */
-  footer{background:#111;padding:40px 20px;text-align:center;}
-  footer p{font-size:1.2rem;color:#ff6ec7;font-weight:bold;}
-  
+  footer{
+    background: rgba(0,0,0,0.5);
+    padding:40px 20px;
+    text-align:center;
+  }
+  footer p{
+    font-size:1.2rem;
+    color:#ff6ec7;
+    font-weight:bold;
+  }
+
   /* ===== Адаптив ===== */
   @media(max-width:768px){
-    header h1{font-size:2.8rem;}
-    section h2{font-size:2.2rem;}
+    header h1{font-size:2rem;}
+    section h2{font-size:2rem;}
     .card{width:90%;}
   }
 </style>
@@ -72,29 +130,29 @@
 <body>
 
 <header>
-  <h1>Вже більше 30 менеджерів в команді, а ти чому чекаєш?</h1>
+  <h1>Вже більше 30 менеджерів у команді — а ти чому чекаєш?</h1>
   <p>Ми боремось за кожного партнера!</p>
   <button class="btn" onclick="window.location.href='#contact'">Контакт</button>
 </header>
 
 <section>
-  <h2>Наші плюси</h2>
+  <h2>Наші переваги</h2>
   <div class="cards">
     <div class="card">
       <h3>Підтримка</h3>
-      <p>Підтримка кожного дня для кожного менеджера.</p>
+      <p>Підтримка кожного дня для всіх менеджерів.</p>
     </div>
     <div class="card">
       <h3>Оплата</h3>
-      <p>Оплата не раз на місяць, а за кожного залученого партнера.</p>
+      <p>За кожного залученого партнера — $100. Без змін та затримок.</p>
     </div>
     <div class="card">
       <h3>Результати</h3>
-      <p>Більшість менеджерів, хто працює більше 5 місяців, отримують понад $1500 на місяць.</p>
+      <p>Більшість менеджерів, хто працює більше 5 місяців, отримують понад $1500 щомісяця.</p>
     </div>
     <div class="card">
       <h3>Гнучкість</h3>
-      <p>З огляду на результати, ми можемо переглядати оплату за залучення нових партнерів.</p>
+      <p>Ми оцінюємо результати та можемо підвищувати оплату за залучення нових партнерів.</p>
     </div>
   </div>
 </section>
@@ -104,7 +162,7 @@
 </footer>
 
 <script>
-  // Анимация появления карточек
+  // Анімація появи карток
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
