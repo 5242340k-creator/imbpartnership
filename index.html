@@ -9,17 +9,19 @@
   * {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
   body {color:#fff; background:#0d0d0d; overflow-x:hidden;}
 
-  /* ===== Фоновый меч с параллакс эффектом ===== */
+  /* ===== Фоновый меч с параллаксом и плавным свечением ===== */
   #sword-bg {
     position: fixed;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(0);
     width: 100%;
     height: 150%;
     background: url('avatar-sword.jpg') center top/cover no-repeat;
     z-index: -1;
     pointer-events: none;
+    filter: drop-shadow(0 0 30px #ff6ec7) drop-shadow(0 0 50px #1c92d2);
+    transition: transform 0.1s linear;
   }
 
   /* ===== Хедер ===== */
@@ -38,7 +40,13 @@
     font-size: 3rem;
     margin-bottom: 20px;
     color: #ff6ec7;
-    text-shadow: 0 0 20px rgba(255,110,199,0.5);
+    text-shadow: 0 0 20px rgba(255,110,199,0.5),0 0 40px rgba(28,146,210,0.5);
+    animation: glow 2s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% {text-shadow: 0 0 20px #ff6ec7, 0 0 40px #1c92d2;}
+    100% {text-shadow: 0 0 40px #ff6ec7, 0 0 80px #1c92d2;}
   }
 
   header p {
@@ -51,18 +59,18 @@
   .btn {
     padding: 15px 40px;
     font-size: 1.2rem;
-    background: #ff6ec7;
+    background: linear-gradient(90deg,#ff6ec7,#1c92d2);
     color: #fff;
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 0 20px #ff6ec7,0 0 30px #1c92d2;
   }
 
   .btn:hover {
     transform: scale(1.1);
-    background: #1c92d2;
-    color: #fff;
+    box-shadow: 0 0 40px #ff6ec7,0 0 60px #1c92d2;
   }
 
   /* ===== Секції ===== */
@@ -79,6 +87,7 @@
     background: linear-gradient(90deg,#ff6ec7,#1c92d2,#fcb045);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
   }
 
   section p {
@@ -181,7 +190,7 @@
   const sword = document.getElementById('sword-bg');
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
-    sword.style.transform = `translate(-50%, ${scrolled * 0.5}px)`;
+    sword.style.transform = `translateX(-50%) translateY(${scrolled * 0.4}px)`;
   });
 
   // Анимация появления карточек
