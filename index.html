@@ -20,9 +20,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
-    height: 100vh;
-    max-width: 600px;
-    background: url('9fd952b3-fb4a-4c8b-a288-75df1921efb5.png') center center/contain no-repeat;
+    height: 90vh;
+    max-width: 500px;
     z-index: -1;
     pointer-events: none;
     filter: drop-shadow(0 0 30px #ff6ec7) drop-shadow(0 0 50px #1c92d2);
@@ -38,7 +37,7 @@
     align-items: center;
     text-align: center;
     padding: 20px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
   }
 
   header h1 {
@@ -82,7 +81,7 @@
   section {
     padding: 80px 20px;
     text-align: center;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
     margin-bottom: 20px;
   }
 
@@ -133,7 +132,7 @@
 
   /* ===== Контакти ===== */
   footer {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
     padding: 40px 20px;
     text-align: center;
   }
@@ -156,7 +155,21 @@
 </head>
 <body>
 
-<div id="sword-bg"></div>
+<!-- ===== Фоновый меч (SVG, прозрачный) ===== -->
+<div id="sword-bg">
+  <svg width="100%" height="100%" viewBox="0 0 64 256" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bladeGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+    <rect x="28" y="0" width="8" height="200" fill="url(#bladeGradient)" />
+    <rect x="24" y="200" width="16" height="12" fill="#555"/>
+    <rect x="20" y="212" width="24" height="8" fill="#333"/>
+    <circle cx="32" cy="220" r="4" fill="#ff6ec7" />
+  </svg>
+</div>
 
 <header>
   <h1>Вже більше 30 менеджерів у команді — а ти чому чекаєш?</h1>
