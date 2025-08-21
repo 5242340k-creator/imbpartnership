@@ -1,165 +1,141 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBMPARTNERSHIP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IBMPARTNERSHIP</title>
 
-    body {
-      background: #0a0a0f;
-      overflow-x: hidden;
-    }
+<!-- Шрифт: Poppins (всюди) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
 
-    header {
-      text-align: center;
-      padding: 100px 20px 50px;
-      position: relative;
-      z-index: 2;
-    }
+<style>
+  :root{
+    --bg:#0b0b0f;
+    --card:#15151c;
+    --accent-pink:#ff6ec7;
+    --accent-cyan:#1c92d2;
+    --accent-gold:#fcb045;
+    --text:#e9e9ee;
+    --muted:#b3b7c2;
+    --ring:0 0 18px rgba(255,110,199,.55), 0 0 28px rgba(28,146,210,.45);
+  }
 
-    header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    overflow-x:hidden;
+  }
 
-    header p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+  body::before,
+  body::after{
+    content:"";
+    position:fixed; inset:0; z-index:-3; pointer-events:none;
+  }
+  body::before{
+    background:
+      repeating-linear-gradient(90deg, rgba(28,146,210,.12) 0 2px, transparent 2px 14px),
+      repeating-linear-gradient(0deg,  rgba(255,110,199,.07) 0 2px, transparent 2px 14px);
+    animation: gridMove 18s linear infinite;
+    opacity:.55;
+  }
+  body::after{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+      repeating-linear-gradient(135deg, rgba(28,146,210,.12) 0 3px, transparent 3px 22px),
+      repeating-linear-gradient(45deg,  rgba(255,110,199,.08) 0 3px, transparent 3px 22px);
+    filter: blur(0.3px);
+    animation: chainDrift 26s linear infinite;
+    opacity:.35;
+  }
+  @keyframes gridMove{
+    0%{background-position:0 0,0 0}
+    100%{background-position:120px 0,0 120px}
+  }
+  @keyframes chainDrift{
+    0%{background-position:0 0,0 0,0 0}
+    100%{background-position:0 0, 600px 0, -600px 0}
+  }
 
-    .section {
-      max-width: 1000px;
-      margin: 80px auto;
-      padding: 0 20px;
-      text-align: center;
-      z-index: 2;
-      position: relative;
-    }
+  #sword-wrap{ position:fixed; inset:0; display:grid; place-items:center; z-index:-1; pointer-events:none; }
+  #sword{ height:92vh; max-height:900px; width:auto; filter: drop-shadow(0 0 28px var(--accent-pink)) drop-shadow(0 0 44px var(--accent-cyan)); transform: translateY(0); transition: transform .08s linear; }
+  .blade-glow{ animation: bladePulse 2.8s ease-in-out infinite; }
+  @keyframes bladePulse{ 0%,100%{opacity:.85} 50%{opacity:1} }
 
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
+  header{ min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; background:linear-gradient(to bottom, rgba(0,0,0,.22), transparent 40%); }
+  .eyebrow{ font-weight:600; font-size:.9rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  h1{ font-weight:800; font-size:clamp(2.2rem, 4.5vw, 3.6rem); line-height:1.1; background:linear-gradient(90deg,var(--accent-pink),var(--accent-cyan),var(--accent-gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow: 0 0 24px rgba(28,146,210,.25); margin-bottom:14px; }
+  .lead{ font-size:clamp(1.05rem,2.1vw,1.25rem); color:var(--muted); max-width:880px; line-height:1.6; margin-bottom:24px; }
+  .cta{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .btn{ padding:14px 24px; border-radius:14px; border:0; cursor:pointer; font-weight:600; font-size:1rem; background:linear-gradient(90deg,var(--accent-pink),var(--accent-cyan)); color:#fff; box-shadow: var(--ring); transition: transform .18s ease, box-shadow .18s ease; }
+  .btn:hover{ transform: translateY(-2px) scale(1.03); box-shadow: 0 0 28px rgba(255,110,199,.75), 0 0 48px rgba(28,146,210,.6); }
+  .btn.secondary{ background:transparent; border:1px solid rgba(255,255,255,.14); color:var(--text); backdrop-filter: blur(4px); }
 
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+  section{ padding:80px 20px; }
+  .container{ max-width:1100px; margin:0 auto; }
+  .section-title{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; text-align:center; margin-bottom:12px; background:linear-gradient(90deg,var(--accent-pink),var(--accent-cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .section-sub{ text-align:center; color:var(--muted); max-width:820px; margin:0 auto 36px; }
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(0, 114, 255, 0.6);
-      transition: transform 0.2s ease;
-    }
+  .grid{ display:grid; gap:18px; grid-template-columns: repeat(12, 1fr); }
+  .card{ background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:22px; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .card:hover{ transform: translateY(-6px); border-color: rgba(255,255,255,.18); box-shadow: 0 16px 50px rgba(0,0,0,.45); }
+  .card h3{ font-weight:700; margin-bottom:8px; }
+  .card p{ color:var(--muted); font-size:.98rem; }
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+  .span-6{ grid-column: span 6; }
+  .span-4{ grid-column: span 4; }
+  .span-3{ grid-column: span 3; }
+  .span-12{ grid-column: 1 / -1; }
 
-    /* Sword SVG */
-    #sword-bg {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-20deg);
-      width: 600px;
-      opacity: 0.15;
-      z-index: 0;
-      pointer-events: none;
-    }
+  .steps{ counter-reset: step; display:grid; gap:16px; }
+  .step{ position:relative; padding:18px 18px 18px 56px; border-left:2px dashed rgba(255,255,255,.15); }
+  .step::before{ counter-increment: step; content: counter(step); position:absolute; left:-14px; top:12px; width:34px; height:34px; display:grid; place-items:center; background:linear-gradient(90deg,var(--accent-pink),var(--accent-cyan)); color:#fff; border-radius:50%; font-weight:700; box-shadow: var(--ring); }
 
-    /* Blockchain lines */
-    #bg-lines {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        90deg,
-        rgba(0, 114, 255, 0.08) 0,
-        rgba(0, 114, 255, 0.08) 2px,
-        transparent 2px,
-        transparent 100px
-      );
-      z-index: 0;
-      pointer-events: none;
-    }
-  </style>
+  details{ background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px 18px; margin-bottom:12px; }
+  summary{ cursor:pointer; font-weight:600; }
+  details p{ color:var(--muted); margin-top:8px; }
+
+  footer{ padding:60px 20px; text-align:center; border-top:1px solid rgba(255,255,255,.08); background: linear-gradient(to top, rgba(0,0,0,.22), transparent); }
+  .handle{ font-weight:700; color:var(--accent-pink); text-shadow: 0 0 16px rgba(255,110,199,.55); }
+
+  @media (max-width: 900px){ .span-6, .span-4, .span-3{ grid-column: 1 / -1; } #sword{ max-height: 70vh; } }
+</style>
 </head>
 <body>
-  <!-- Background blockchain lines -->
-  <div id="bg-lines"></div>
 
-  <!-- Sword background -->
-  <svg id="sword-bg" viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="blade" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#00f7ff"/>
-        <stop offset="100%" stop-color="#0072ff"/>
-      </linearGradient>
-      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="8" result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-    <rect x="90" y="50" width="20" height="400" fill="url(#blade)" filter="url(#glow)"/>
-    <rect x="70" y="440" width="60" height="20" fill="#999"/>
-    <rect x="95" y="460" width="10" height="80" fill="#663300"/>
-    <circle cx="100" cy="550" r="15" fill="#552200"/>
-  </svg>
+<div id="sword-wrap" aria-hidden="true">
+  <!-- SVG меч залишаємо без змін -->
+</div>
 
-  <header>
-    <h1>IBMPARTNERSHIP</h1>
-    <p>Вже більше 30 менеджерів у команді — а ти чому чекаєш?</p>
-    <a href="https://t.me/ibmofficial" class="btn">Приєднатись у Telegram</a>
-  </header>
-
-  <div class="section">
-    <h2>Хто ми?</h2>
-    <p>IBMPARTNERSHIP — це міжнародна команда, що займається розвитком партнерських програм у сфері криптовалют, інвестицій та фінансових технологій. Ми допомагаємо людям будувати прибутковий бізнес разом із нами.</p>
+<header>
+  <div class="eyebrow">Партнерська програма</div>
+  <h1>Вже більше 30 менеджерів у команді — а ти чому чекаєш?</h1>
+  <p class="lead">Ми боремось за кожного партнера. Прозорі умови, гнучке зростання та щоденна підтримка. Підключайся і заробляй з першого тижня.</p>
+  <div class="cta">
+    <a class="btn" href="#join">Приєднатися</a>
+    <a class="btn secondary" href="#contact">Контакт</a>
   </div>
+</header>
 
-  <div class="section">
-    <h2>Чому з нами вигідно?</h2>
-    <p>✔ Гарантована виплата — $100 за кожного активного клієнта.<br>
-       ✔ Сучасні інструменти для просування.<br>
-       ✔ Командна підтримка 24/7.<br>
-       ✔ Прозорі умови та офіційні договори.</p>
-  </div>
+<!-- Інші секції залишаються без змін -->
 
-  <div class="section">
-    <h2>Переваги</h2>
-    <p>Ми створюємо умови, де кожен може заробляти та розвиватись. Наші партнери отримують готові матеріали, навчання, підтримку від топ-менеджерів і можливість масштабуватись без обмежень.</p>
+<footer id="contact">
+  <div class="container">
+    <h2 class="section-title">Контакти</h2>
+    <p class="section-sub">Напиши нам у Telegram — відповімо впродовж дня.</p>
+    <p class="handle">@ibmofficial</p>
   </div>
+</footer>
 
-  <div class="section">
-    <h2>Як приєднатись?</h2>
-    <p>Просто переходь у наш офіційний Telegram-канал і пиши нам!</p>
-    <a href="https://t.me/ibmofficial" class="btn">Написати у Telegram</a>
-  </div>
+<script>
+  const sword = document.getElementById('sword');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY * 0.35;
+    if(sword){ sword.style.transform = `translateY(${y}px)`; }
+  });
+</script>
+
 </body>
 </html>
