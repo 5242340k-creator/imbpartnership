@@ -9,7 +9,7 @@
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
   body{background:#0d0d0d;color:#fff;overflow-x:hidden;}
 
-  /* ===== Анимированный градиентный фон ===== */
+  /* ===== Градиентный фон хедера ===== */
   header{
     height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
     background: linear-gradient(-45deg,#00aaff,#ff00ff,#00ff88,#ffaa00);
@@ -49,6 +49,7 @@
   .card{
     background:#111;border-radius:20px;padding:20px;width:270px;cursor:pointer;overflow:hidden;
     transform:translateY(50px);opacity:0;transition:0.4s;
+    display:flex;flex-direction:column;align-items:center;
   }
   .card img{width:100%;height:160px;object-fit:cover;border-radius:15px;margin-bottom:15px;transition:transform 0.3s;}
   .card h3{margin-bottom:10px;font-size:1.3rem;}
@@ -87,19 +88,24 @@
   <h2>Наші можливості</h2>
   <div class="cards">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1603415526960-f1d1e60c5f91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Аналітика">
+      <img src="https://images.unsplash.com/photo-1591696331111-f180e5e4ce23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Аналітика">
       <h3>Аналітика</h3>
       <p>Відстежуємо ефективність менеджерів та інфлюенсерів у реальному часі.</p>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1559028012-48122f34f0eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Команда">
+      <img src="https://images.unsplash.com/photo-1551836022-2e3e68b87e40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Команда">
       <h3>Команда</h3>
       <p>Понад 30 активних учасників досягають результатів разом з нами.</p>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1591696331111-f180e5e4ce23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Розвиток">
+      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Розвиток">
       <h3>Розвиток</h3>
       <p>Допомагаємо менеджерам рости і збільшувати охоплення інфлюенсерів.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091215366-36c3a55e3d0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Підтримка">
+      <h3>Підтримка</h3>
+      <p>Наші менеджери завжди готові допомогти та відповісти на будь-які питання учасників.</p>
     </div>
   </div>
 </section>
@@ -107,9 +113,11 @@
 <section>
   <h2>Галерея</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1581091215366-36c3a55e3d0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 1">
-    <img src="https://images.unsplash.com/photo-1581091012184-1f87e4c2b2d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 2">
-    <img src="https://images.unsplash.com/photo-1573164574391-6d3b50f57a0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 3">
+    <img src="https://images.unsplash.com/photo-1581091012184-1f87e4c2b2d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 1">
+    <img src="https://images.unsplash.com/photo-1573164574391-6d3b50f57a0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 2">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 3">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 4">
+    <img src="https://images.unsplash.com/photo-1531497865147-8a16c2d25f52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Фото 5">
   </div>
 </section>
 
@@ -118,7 +126,6 @@
 </footer>
 
 <script>
-  // Появление карточек при скролле
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
