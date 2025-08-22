@@ -1,149 +1,236 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBM - Партнерська мережа</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBM</title>
   <style>
     :root {
-      --bg-dark: #0a0a0f;
-      --bg-gradient: linear-gradient(135deg, #0a0a0f, #141428, #0a0a0f);
-      --primary: #00f5ff;
-      --accent: #6d00ff;
-      --text-light: #f5f5f5;
-      --card-bg: rgba(20, 20, 40, 0.85);
-      --border-glow: 0 0 12px rgba(0, 245, 255, 0.6);
+      --bg-color: #0a0a0f;
+      --primary: #00f7ff;
+      --secondary: #ff0080;
+      --text: #f0f0f0;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --glow: 0 0 15px var(--primary), 0 0 30px var(--primary);
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
     }
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-light);
+      background: var(--bg-color);
+      color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
     }
     header {
-      text-align: center;
-      padding: 100px 20px 60px;
       position: relative;
-      z-index: 2;
+      text-align: center;
+      padding: 120px 20px 100px;
+      overflow: hidden;
     }
     header h1 {
-      font-size: 5rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+      text-shadow: var(--glow);
     }
     header p {
-      font-size: 1.4rem;
-      margin: 10px 0;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 20px;
     }
-    header .cta {
-      margin-top: 25px;
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    header .cta a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 28px;
-      border-radius: 12px;
-      border: 1px solid var(--primary);
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: bold;
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
       transition: all 0.3s;
     }
-    header .cta a:hover {
+    .btn-primary {
       background: var(--primary);
-      color: var(--bg-dark);
-      box-shadow: var(--border-glow);
+      color: #000;
+      box-shadow: var(--glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+    .btn-secondary:hover {
+      background: var(--secondary);
+      color: #fff;
     }
     section {
-      padding: 60px 20px;
+      padding: 100px 20px;
+      max-width: 1000px;
+      margin: auto;
       position: relative;
       z-index: 2;
     }
     section h2 {
+      font-size: 2.5rem;
       text-align: center;
-      font-size: 2.4rem;
       margin-bottom: 40px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto;
+      color: var(--primary);
+      text-shadow: var(--glow);
     }
     .card {
       background: var(--card-bg);
       padding: 25px;
-      border-radius: 16px;
-      border: 1px solid rgba(0, 245, 255, 0.3);
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 25px;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--border-glow);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    details {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    summary {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 10px;
     }
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: #0a0a0f;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      position: relative;
-      z-index: 2;
+      background: #111;
+      color: #777;
     }
+
+    /* фон + меч */
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.03) 0,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 80px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.03) 0,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 80px
+        );
+      animation: move 60s linear infinite;
+      z-index: 0;
+    }
+    @keyframes move {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 80px 80px;
+      }
+    }
+    .sword {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-20deg);
+      width: 500px;
+      opacity: 0.1;
+      filter: drop-shadow(0 0 20px var(--primary));
+      z-index: 1;
+    }
+
     @media (max-width: 900px) {
       header h1 {
-        font-size: 3rem;
+        font-size: 2.2rem;
+      }
+      section h2 {
+        font-size: 1.8rem;
       }
     }
   </style>
 </head>
 <body>
+  <div class="background-grid"></div>
   <header>
+    <svg class="sword" viewBox="0 0 100 500">
+      <rect x="45" y="0" width="10" height="400" fill="url(#grad)" />
+      <rect x="40" y="400" width="20" height="50" fill="#555" />
+      <rect x="35" y="450" width="30" height="40" fill="#333" />
+      <defs>
+        <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#00f7ff" />
+          <stop offset="100%" stop-color="#ff0080" />
+        </linearGradient>
+      </defs>
+    </svg>
     <h1>IBM</h1>
-    <p>Інноваційна бізнес-мережа.<br>Щоденна підтримка.<br>Підключайся і заробляй з нами.</p>
-    <div class="cta">
-      <a href="#about">Дізнатися більше</a>
-      <a href="#contact">Стати партнером</a>
+    <p>
+      Повна автоматизація.  
+      Постійна підтримка.  
+      Щоденна допомога.  
+      <br />
+      Підключайся і заробляй разом з нами.
+    </p>
+    <div class="cta-buttons">
+      <button class="btn btn-primary">Приєднатися</button>
+      <button class="btn btn-secondary">Дізнатися більше</button>
     </div>
   </header>
 
-  <section id="about">
+  <section>
     <h2>IBM</h2>
-    <div class="grid">
-      <div class="card">
-        <p>Ми - міжнародна бізнес-мережа.</p>
-        <p>Ми допомагаємо партнерам масштабуватись.</p>
-        <p>Ми відкриті до інновацій.</p>
-      </div>
+    <div class="card">
+      <p>
+        Ми — команда професіоналів. <br />
+        Ми допомагаємо людям заробляти. <br />
+        Наш досвід доводить, що успіх можливий для кожного. <br />
+      </p>
     </div>
   </section>
 
-  <section id="training">
+  <section>
     <h2>Навчання</h2>
-    <div class="grid">
-      <div class="card">
-        <p>Ми надаємо якісні матеріали.</p>
-        <p>Навчання відбувається крок за кроком.</p>
-        <p>Наші наставники завжди допоможуть.</p>
-      </div>
+    <div class="card">
+      <p>
+        Ми даємо повну підтримку новачкам. <br />
+        Ти отримаєш доступ до матеріалів та інструкцій. <br />
+        Регулярні сесії допоможуть швидко освоїтись. <br />
+      </p>
     </div>
   </section>
 
-  <footer id="contact">
-    <p>© 2025 IBM. Всі права захищені.</p>
+  <section>
+    <h2>FAQ</h2>
+    <details>
+      <summary>Як почати співпрацю?</summary>
+      <p>Напиши нам у Telegram і отримаєш інструкцію.</p>
+    </details>
+    <details>
+      <summary>Чи потрібен досвід?</summary>
+      <p>Ні, ми навчимо всьому з нуля.</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>© 2025 IBM. Усі права захищено.</p>
   </footer>
 </body>
 </html>
