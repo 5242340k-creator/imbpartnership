@@ -132,13 +132,24 @@
     background: linear-gradient(to top, rgba(0,0,0,.4), transparent);
   }
 
-  @media (max-width: 900px){
-    .span-6, .span-4{ grid-column: 1 / -1; }
-    #sword{ max-height: 70vh; }
+  /* Кнопка перекладу */
+  #translate-btn {
+    position:fixed; top:15px; right:15px; z-index:9999;
+    width:45px; height:45px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:600; font-size:14px;
+    background:var(--accent-blue); color:#fff;
+    border-radius:10px; cursor:pointer;
+    box-shadow:var(--ring);
+    transition:.3s;
   }
+  #translate-btn:hover { background:var(--accent-gold); color:#000; }
 </style>
 </head>
 <body>
+
+<!-- Кнопка перекладу -->
+<div id="translate-btn">EN</div>
 
 <div id="sword-wrap" aria-hidden="true">
   <svg id="sword" viewBox="0 0 120 900" xmlns="http://www.w3.org/2000/svg">
@@ -220,6 +231,24 @@
 <footer>
   <a class="btn" href="https://t.me/ibmofficial" target="_blank">КОНТАКТ</a>
 </footer>
+
+<!-- Google Translate підключення -->
+<script>
+  document.getElementById('translate-btn').addEventListener('click', function(){
+    if (!window.googleTranslateElementInit) {
+      var googleTranslateScript = document.createElement('script');
+      googleTranslateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      document.body.appendChild(googleTranslateScript);
+
+      window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement(
+          {pageLanguage: 'uk', includedLanguages: 'en,pl,ru,de,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+          'translate-btn'
+        );
+      };
+    }
+  });
+</script>
 
 <script>
   const sword = document.getElementById('sword');
