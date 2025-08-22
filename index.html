@@ -12,12 +12,12 @@
   :root{
     --bg:#0d0e12;
     --card:#16171d;
-    --accent-gold:#d4af37;
-    --accent-red:#a32020;
-    --accent-blue:#2a4f9c;
-    --text:#f2f2f6;
-    --muted:#b7bac5;
-    --ring:0 0 16px rgba(212,175,55,.55), 0 0 22px rgba(42,79,156,.45);
+    --accent-gold:#fcb045;
+    --accent-silver:#c0c4d6;
+    --accent-blue:#1c92d2;
+    --text:#e9e9ee;
+    --muted:#b3b7c2;
+    --ring:0 0 16px rgba(252,176,69,.55), 0 0 22px rgba(28,146,210,.45);
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -56,8 +56,7 @@
   h1{
     font-family:'Cinzel',serif;
     font-weight:700; font-size:clamp(2rem, 4vw, 3rem);
-    background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    color:var(--accent-silver);
     text-shadow:0 0 18px rgba(0,0,0,.65);
     margin-bottom:16px;
   }
@@ -67,7 +66,7 @@
   }
   .btn{
     padding:14px 24px; border-radius:10px; border:2px solid var(--accent-gold); cursor:pointer; font-weight:600;
-    background:var(--accent-red);
+    background:var(--accent-blue);
     color:#fff; text-decoration:none; display:inline-block;
     box-shadow:var(--ring);
     transition:.25s;
@@ -81,7 +80,7 @@
     font-family:'Cinzel',serif;
     font-size:clamp(1.8rem,3.5vw,2.4rem); font-weight:800; text-align:center; margin-bottom:12px;
     color:var(--accent-gold);
-    text-shadow:0 0 14px rgba(212,175,55,.4);
+    text-shadow:0 0 14px rgba(252,176,69,.4);
   }
   .section-sub{ text-align:center; color:var(--muted); max-width:820px; margin:0 auto 36px; }
 
@@ -91,7 +90,7 @@
   }
   .card{
     background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-    border:1px solid rgba(212,175,55,.25);
+    border:1px solid rgba(252,176,69,.25);
     border-radius:14px; padding:22px;
     box-shadow: 0 8px 28px rgba(0,0,0,.45);
     text-align:center;
@@ -106,7 +105,7 @@
   .span-12{ grid-column: 1 / -1; }
 
   .steps{ counter-reset: step; display:grid; gap:16px; }
-  .step{ position:relative; padding:18px 18px 18px 56px; border-left:2px dashed rgba(212,175,55,.25); text-align:center; }
+  .step{ position:relative; padding:18px 18px 18px 56px; border-left:2px solid rgba(252,176,69,.25); text-align:left; }
   .step::before{
     counter-increment: step; content: counter(step);
     position:absolute; left:-14px; top:12px; width:34px; height:34px; display:grid; place-items:center;
@@ -116,7 +115,7 @@
 
   details{
     background:rgba(0,0,0,.35);
-    border:1px solid rgba(212,175,55,.25);
+    border:1px solid rgba(252,176,69,.25);
     border-radius:10px; padding:16px 18px; margin-bottom:12px;
   }
   summary{ cursor:pointer; font-weight:600; font-family:'Cinzel',serif; color:var(--accent-gold); }
@@ -124,7 +123,7 @@
 
   footer{
     padding:60px 20px; text-align:center;
-    border-top:1px solid rgba(212,175,55,.35);
+    border-top:1px solid rgba(252,176,69,.35);
     background: linear-gradient(to top, rgba(0,0,0,.4), transparent);
   }
 
@@ -144,7 +143,7 @@
         <stop offset="100%" stop-color="#999"/>
       </linearGradient>
       <linearGradient id="hilt" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#d4af37"/>
+        <stop offset="0%" stop-color="#fcb045"/>
         <stop offset="100%" stop-color="#7a5c1f"/>
       </linearGradient>
     </defs>
@@ -164,13 +163,13 @@
 <section id="about">
   <div class="container">
     <h2 class="section-title">Хто ми</h2>
-    <p class="section-sub">Проєкт, що залучає інфлюенсерів та лідерів думок до партнерства у нішах трейдингу та крипти. Ми будуємо довгі відносини та ділимось експертизою з кожним менеджером.</p>
+    <p class="section-sub">Проєкт, що залучає інфлюенсерів та лідерів думок до партнерства у нішах трейдингу та крипти Ми будуємо довгі відносини та ділимось експертизою з кожним менеджером</p>
     <div class="grid">
-      <div class="card span-6"><h3>Фокус на результат</h3><p>План для входу, матеріали та скрипти. Ти працюєш – ми показуємо, як робити ефективніше.</p></div>
-      <div class="card span-6"><h3>Чиста математика</h3><p>$100 за кожного партнера. Бонуси та підвищення за стабільність і якість.</p></div>
-      <div class="card span-4"><h3>Навчання</h3><p>Швидкий старт, чек-листи, шаблони повідомлень. Допомога у спілкуванні з лідерами думок.</p></div>
-      <div class="card span-4"><h3>Підтримка щодня</h3><p>Онлайн-чат, відповіді протягом дня, міні-коучинг.</p></div>
-      <div class="card span-4"><h3>Зростання</h3><p>Менеджери з досвідом 5+ міс отримують $1500+ / міс.</p></div>
+      <div class="card span-6"><h3>Фокус на результат</h3><p>План для входу, матеріали та скрипти Ти працюєш – ми показуємо як робити ефективніше</p></div>
+      <div class="card span-6"><h3>Чиста математика</h3><p>$100 за кожного партнера Бонуси та підвищення за стабільність і якість</p></div>
+      <div class="card span-4"><h3>Навчання</h3><p>Швидкий старт, чек-листи, шаблони повідомлень Допомога у спілкуванні з лідерами думок</p></div>
+      <div class="card span-4"><h3>Підтримка щодня</h3><p>Онлайн-чат, відповіді протягом дня, міні-коучинг</p></div>
+      <div class="card span-4"><h3>Зростання</h3><p>Менеджери з досвідом 5+ міс отримують $1500+ / міс</p></div>
     </div>
   </div>
 </section>
@@ -178,10 +177,10 @@
 <section id="why">
   <div class="container">
     <h2 class="section-title">Чому саме ми</h2>
-    <p class="section-sub">Ми не обіцяємо «золото завтра». Ми показуємо цифри, все прозоро.</p>
+    <p class="section-sub">Ми не обіцяємо «золото завтра» Ми показуємо цифри все прозоро</p>
     <div class="grid">
-      <div class="card span-6"><h3>Фікс $100</h3><p>За кожного партнера. Умови стабільні.</p></div>
-      <div class="card span-6"><h3>Матеріали</h3><p>Скрипти, кейси, підтримка на перших етапах.</p></div>
+      <div class="card span-6"><h3>Фікс $100</h3><p>За кожного партнера Умови стабільні</p></div>
+      <div class="card span-6"><h3>Матеріали</h3><p>Скрипти, кейси, підтримка на перших етапах</p></div>
     </div>
   </div>
 </section>
@@ -191,10 +190,10 @@
     <h2 class="section-title">Як це працює</h2>
     <p class="section-sub">П’ять кроків від заявки до виплат</p>
     <div class="steps">
-      <div class="card step"><h3>Заявка</h3><p>Пишеш нам в Telegram – коротко про досвід.</p></div>
-      <div class="card step"><h3>Онбординг</h3><p>Отримуєш матеріали, підтримку і кейси.</p></div>
-      <div class="card step"><h3>Запуск</h3><p>Стартуємо з перевірених майданчиків, даємо фідбек.</p></div>
-      <div class="card step"><h3>Виплати</h3><p>$100 за кожного нового партнера. Бонуси за стабільність.</p></div>
+      <div class="card step"><h3>Заявка</h3><p>Пишеш нам в Telegram – коротко про досвід</p></div>
+      <div class="card step"><h3>Онбординг</h3><p>Отримуєш матеріали, підтримку і кейси</p></div>
+      <div class="card step"><h3>Запуск</h3><p>Стартуємо з перевірених майданчиків даємо фідбек</p></div>
+      <div class="card step"><h3>Виплати</h3><p>$100 за кожного нового партнера Бонуси за стабільність</p></div>
     </div>
   </div>
 </section>
@@ -203,10 +202,10 @@
   <div class="container">
     <h2 class="section-title">FAQ</h2>
     <p class="section-sub">Відповіді на типові питання</p>
-    <details><summary>Чи є мінімальний план по результатам?</summary><p>На старті – ні. Працюємо від твого темпу, далі разом ставимо планку та ростемо.</p></details>
-    <details><summary>Чи фіксована оплата $100?</summary><p>Так. Плюс можливі бонуси після стабільних результатів.</p></details>
-    <details><summary>Як швидко проходить онбординг?</summary><p>Протягом 24-48 годин після першого контакту.</p></details>
-    <details><summary>З ким ми працюємо?</summary><p>Україна + СНД. Ніша – трейдинг, крипта, фінансові сервіси.</p></details>
+    <details><summary>Чи є мінімальний план по результатам?</summary><p>На старті – ні Працюємо від твого темпу далі разом ставимо планку та ростемо</p></details>
+    <details><summary>Чи фіксована оплата $100?</summary><p>Так Плюс можливі бонуси після стабільних результатів</p></details>
+    <details><summary>Як швидко проходить онбординг?</summary><p>Протягом 24-48 годин після першого контакту</p></details>
+    <details><summary>З ким ми працюємо?</summary><p>Україна + СНД Ніша – трейдинг, крипта, фінансові сервіси</p></details>
   </div>
 </section>
 
