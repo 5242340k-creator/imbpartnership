@@ -132,24 +132,13 @@
     background: linear-gradient(to top, rgba(0,0,0,.4), transparent);
   }
 
-  /* Кнопка перекладу */
-  #translate-btn {
-    position:fixed; top:15px; right:15px; z-index:9999;
-    width:45px; height:45px;
-    display:flex; align-items:center; justify-content:center;
-    font-weight:600; font-size:14px;
-    background:var(--accent-blue); color:#fff;
-    border-radius:10px; cursor:pointer;
-    box-shadow:var(--ring);
-    transition:.3s;
+  @media (max-width: 900px){
+    .span-6, .span-4{ grid-column: 1 / -1; }
+    #sword{ max-height: 70vh; }
   }
-  #translate-btn:hover { background:var(--accent-gold); color:#000; }
 </style>
 </head>
 <body>
-
-<!-- Кнопка перекладу -->
-<div id="translate-btn">⇆</div>
 
 <div id="sword-wrap" aria-hidden="true">
   <svg id="sword" viewBox="0 0 120 900" xmlns="http://www.w3.org/2000/svg">
@@ -179,30 +168,58 @@
   <p class="lead">Прозорі умови, гнучке зростання та щоденна підтримка<br>Підключайся і заробляй з першого тижня</p>
 </header>
 
-<!-- ТВОЇ СЕКЦІЇ ЯК І РАНІШЕ -->
-<!-- (скорочено для прикладу, зміст не міняв, тільки переклад кнопку додав) -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">Хто ми</h2>
+    <p class="section-sub">Проєкт, що залучає інфлюенсерів та лідерів думок до партнерства у нішах трейдингу та крипти<br>Ми будуємо довгі відносини<br>Ділимось експертизою з кожним менеджером</p>
+    <div class="grid">
+      <div class="card span-6"><h3>Фокус на результат</h3><p>План для входу, матеріали та скрипти<br>Ти працюєш – ми показуємо як робити ефективніше</p></div>
+      <div class="card span-6"><h3>Чиста математика</h3><p>$100 за кожного партнера<br>Бонуси та підвищення за стабільність і якість</p></div>
+      <div class="card span-4"><h3>Навчання</h3><p>Швидкий старт, чек-листи, шаблони повідомлень<br>Допомога у спілкуванні з лідерами думок</p></div>
+      <div class="card span-4"><h3>Підтримка щодня</h3><p>Онлайн-чат<br>Відповіді протягом дня<br>Міні-коучинг</p></div>
+      <div class="card span-4"><h3>Зростання</h3><p>Менеджери з досвідом 5+ міс отримують<br>$1500+ / міс</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <h2 class="section-title">Чому саме ми</h2>
+    <p class="section-sub">Ми не обіцяємо «золото завтра»<br>Ми показуємо цифри – все прозоро</p>
+    <div class="grid">
+      <div class="card span-6"><h3>Фікс $100</h3><p>За кожного партнера<br>Умови стабільні</p></div>
+      <div class="card span-6"><h3>Матеріали</h3><p>Скрипти<br>Кейси<br>Підтримка на перших етапах</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="container">
+    <h2 class="section-title">Як це працює</h2>
+    <p class="section-sub">П’ять кроків від заявки до виплат</p>
+    <div class="steps">
+      <div class="card step"><h3>Заявка</h3><p>Напиши нам в Telegram про себе та свій досвід</p></div>
+      <div class="card step"><h3>Онбординг</h3><p>Отримуєш матеріали<br>Підтримку<br>Кейси</p></div>
+      <div class="card step"><h3>Запуск</h3><p>Стартуємо з перевірених майданчиків<br>Даємо фідбек</p></div>
+      <div class="card step"><h3>Виплати</h3><p>$100 за кожного нового партнера<br>Бонуси за стабільність</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">FAQ</h2>
+    <p class="section-sub">Відповіді на типові питання</p>
+    <details><summary>Чи є мінімальний план по результатам?</summary><p>На старті – ні<br>Працюємо від твого темпу<br>Далі разом ставимо планку та ростемо</p></details>
+    <details><summary>Чи фіксована оплата $100?</summary><p>Так<br>Плюс можливі бонуси після стабільних результатів</p></details>
+    <details><summary>Як швидко проходить онбординг?</summary><p>Протягом 24-48 годин<br>Після першого контакту</p></details>
+    <details><summary>З ким ми працюємо?</summary><p>Україна + СНД<br>Ніша – трейдинг, крипта, фінансові сервіси</p></details>
+  </div>
+</section>
 
 <footer>
   <a class="btn" href="https://t.me/ibmofficial" target="_blank">КОНТАКТ</a>
 </footer>
-
-<!-- Google Translate підключення -->
-<script>
-  document.getElementById('translate-btn').addEventListener('click', function(){
-    if (!window.googleTranslateElementInit) {
-      var googleTranslateScript = document.createElement('script');
-      googleTranslateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      document.body.appendChild(googleTranslateScript);
-
-      window.googleTranslateElementInit = function() {
-        new google.translate.TranslateElement(
-          {pageLanguage: 'uk', includedLanguages: 'en,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-          'translate-btn'
-        );
-      };
-    }
-  });
-</script>
 
 <script>
   const sword = document.getElementById('sword');
