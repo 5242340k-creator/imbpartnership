@@ -9,110 +9,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
 
 <style>
-  * {
-    margin: 0; padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  body {
-    background: #0d0d0d;
-    color: #f5f5f5;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  a { text-decoration: none; }
-  header {
-    position: relative;
-    text-align: center;
-    padding: 6rem 1rem 4rem;
-    background: linear-gradient(135deg,#0d0d0d 0%,#111 100%);
-    overflow: hidden;
-  }
-  header .brand {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg,#00f7ff,#ff00c8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-  }
-  header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  header p.lead {
-    font-size: 1.1rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-  section {
-    padding: 4rem 1.5rem;
-    max-width: 1000px;
-    margin: auto;
-  }
-  section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #00f7ff;
-    text-align: center;
-  }
-  section p {
-    margin-bottom: 1rem;
-    color: #ddd;
-    white-space: pre-line;
-    text-align: center;
-  }
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 1.5rem;
-    justify-items: center;
-  }
-  .feature {
-    background: #1a1a1a;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,247,255,0.2);
-    transition: transform 0.3s ease;
-    text-align: center;
-  }
-  .feature:hover { transform: translateY(-5px); }
-  .contact-button {
-    display: inline-block;
-    background: #00f7ff;
-    color: #0d0d0d;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    transition: background 0.3s ease;
-  }
-  .contact-button:hover { background: #00c7ff; }
-  footer {
-    background: #111;
-    padding: 2rem 1rem;
-    text-align: center;
-    color: #888;
-    font-size: 0.9rem;
-  }
-  #sword-wrap {
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    opacity: 0.15;
-    z-index: 0;
-  }
+  * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body {background:#0d0d0d;color:#f5f5f5;line-height:1.6;overflow-x:hidden;}
+  a {text-decoration:none;}
+  header {position:relative;text-align:center;padding:6rem 1rem 4rem;background:linear-gradient(135deg,#0d0d0d 0%,#111 100%);overflow:hidden;}
+  header .brand {font-size:3rem;font-weight:800;letter-spacing:2px;background:linear-gradient(90deg,#00f7ff,#ff00c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;}
+  header h1 {font-size:2rem;font-weight:600;margin-bottom:1rem;}
+  header p.lead {font-size:1.1rem;color:#ccc;max-width:600px;margin:0 auto;line-height:1.8;}
+  section {padding:4rem 1.5rem;max-width:1000px;margin:auto;}
+  section h2 {font-size:1.8rem;margin-bottom:1.5rem;color:#00f7ff;text-align:center;}
+  section p {margin-bottom:1rem;color:#ddd;white-space:pre-line;text-align:center;}
+  .features {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;justify-items:center;}
+  .feature {background:#1a1a1a;padding:1.5rem;border-radius:12px;box-shadow:0 0 15px rgba(0,247,255,0.2);transition:transform 0.3s ease;text-align:center;}
+  .feature:hover {transform:translateY(-5px);}
+  .contact-button {display:inline-block;background:#00f7ff;color:#0d0d0d;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;margin-top:1rem;transition:background 0.3s ease;}
+  .contact-button:hover {background:#00c7ff;}
+  footer {background:#111;padding:2rem 1rem;text-align:center;color:#888;font-size:0.9rem;}
+  #sword-wrap {position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:220px;opacity:0.15;z-index:0;}
 </style>
 </head>
 <body>
 
-<!-- SVG-меч -->
 <div id="sword-wrap" aria-hidden="true">
   <svg id="sword" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path fill="#00f7ff" d="M256 0L300 100H212L256 0zM212 100h88L256 512 212 100z"/>
@@ -122,17 +39,12 @@
 <header>
   <div class="brand">IBM</div>
   <h1>Вже більше 30 менеджерів у команді - а ти чому чекаєш?</h1>
-  <p class="lead">
-    Прозорі умови, гнучке зростання та щоденна підтримка.<br>
-    Підключайся і заробляй з першого тижня.
-  </p>
+  <p class="lead">Прозорі умови, гнучке зростання та щоденна підтримка.<br>Підключайся і заробляй з першого тижня.</p>
 </header>
 
 <section id="about">
   <h2>Про проєкт</h2>
-  <p>
-    Проєкт, який залучає інфлюєнсерів та лідерів думок до партнерства, створюючи прозору та ефективну співпрацю для кожного.
-  </p>
+  <p>Проєкт, який залучає інфлюєнсерів та лідерів думок до партнерства, створюючи прозору та ефективну співпрацю для кожного.</p>
 </section>
 
 <section id="why">
@@ -151,11 +63,7 @@
 
 <section id="join">
   <h2>Як це працює?</h2>
-  <p>
-    Фокус на результат<br>
-    План для входу, щотижневі розбори, матеріали та скрипти.<br>
-    Ти працюєш - ми підсвічуємо, як робити це ефективніше.
-  </p>
+  <p>Фокус на результат<br>План для входу, щотижневі розбори, матеріали та скрипти.<br>Ти працюєш - ми підсвічуємо, як робити це ефективніше.</p>
 </section>
 
 <section id="faq">
@@ -167,9 +75,7 @@
 
 <section id="contact">
   <h2>Контакти</h2>
-  <p>
-    <a href="https://t.me/ibmofficial" target="_blank" class="contact-button">КОНТАКТ</a>
-  </p>
+  <p><a href="https://t.me/ibmofficial" target="_blank" class="contact-button">КОНТАКТ</a></p>
 </section>
 
 <footer>
