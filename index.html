@@ -29,14 +29,14 @@
     overflow-x:hidden;
   }
 
-  /* ====== Фоновий меч (SVG) ====== */
   #sword-wrap{
     position:fixed; inset:0; display:grid; place-items:center; z-index:-1; pointer-events:none;
     opacity:.25;
   }
   #sword{
-    height:90vh; max-height:900px; width:auto;
+    height:92vh; max-height:900px; width:auto;
     filter: drop-shadow(0 0 24px rgba(212,175,55,.55));
+    transition: transform .08s linear;
   }
 
   header{
@@ -45,21 +45,22 @@
     background:linear-gradient(to bottom, rgba(0,0,0,.45), transparent 60%);
   }
 
+  .brand{
+    font-family:'Cinzel',serif;
+    font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+    font-size:clamp(2.2rem, 4vw, 3rem);
+    color:var(--accent-gold);
+    text-shadow:0 0 18px rgba(0,0,0,.75);
+    margin-bottom:10px;
+  }
+
   h1{
     font-family:'Cinzel',serif;
-    font-weight:800; font-size:clamp(2.4rem, 5vw, 4rem); line-height:1.2;
-    color:var(--accent-gold);
+    font-weight:800; font-size:clamp(2.2rem, 4.5vw, 3.6rem); line-height:1.1;
+    color:var(--accent-red);
     text-shadow: 0 0 18px rgba(0,0,0,.75);
     margin-bottom:14px;
   }
-  .brand{
-    font-family:'Cinzel',serif;
-    font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-    font-size:clamp(1.4rem, 2vw, 1.8rem);
-    color:var(--accent-red);
-    margin-top:8px;
-  }
-
   .lead{
     font-size:clamp(1.05rem,2.1vw,1.25rem); color:var(--muted); max-width:880px; line-height:1.6; margin-bottom:24px;
   }
@@ -99,6 +100,14 @@
   .span-4{ grid-column: span 4; }
   .span-12{ grid-column: 1 / -1; }
 
+  .steps{ counter-reset: step; display:grid; gap:16px; }
+  .step{ position:relative; padding:18px 18px 18px 56px; border-left:2px dashed rgba(212,175,55,.25); text-align:center; }
+  .step::before{
+    counter-increment: step; content: counter(step);
+    position:absolute; left:-14px; top:12px; width:34px; height:34px; display:grid; place-items:center;
+    background:var(--accent-red); color:#fff; border-radius:50%; font-weight:700;
+  }
+
   details{
     background:rgba(0,0,0,.35);
     border:1px solid rgba(212,175,55,.25);
@@ -121,7 +130,6 @@
 </head>
 <body>
 
-<!-- ======= SVG-меч (спрощений, середньовічний стиль) ======= -->
 <div id="sword-wrap" aria-hidden="true">
   <svg id="sword" viewBox="0 0 120 900" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -134,25 +142,47 @@
         <stop offset="100%" stop-color="#8b6f21"/>
       </linearGradient>
     </defs>
-    <!-- клинок -->
     <rect x="52" y="20" width="16" height="700" fill="url(#blade)" stroke="#999"/>
-    <!-- гарда -->
     <rect x="20" y="720" width="80" height="16" fill="url(#hilt)"/>
-    <!-- рукоять -->
     <rect x="54" y="736" width="12" height="120" fill="#3a2f1a"/>
-    <!-- навершя -->
     <circle cx="60" cy="860" r="18" fill="url(#hilt)" stroke="#000"/>
   </svg>
 </div>
 
 <header>
-  <h1>Вже більше 30 менеджерів у команді - а ти чому чекаєш?</h1>
   <div class="brand">IBM</div>
-  <p class="lead">
-    Прозорі умови, гнучке зростання та щоденна підтримка<br>
-    Підключайся і заробляй з першого тижня
-  </p>
+  <h1>Вже більше 30 менеджерів у команді - а ти чому чекаєш?</h1>
+  <p class="lead">Прозорі умови, гнучке зростання та щоденна підтримка<br>Підключайся і заробляй з першого тижня</p>
 </header>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">IBM</h2>
+    <p class="section-sub">Проєкт, що залучає інфлюенсерів та лідерів думок до партнерства у нішах трейдингу та крипти, будуємо довгі відносини та ділимось експертизою з кожним менеджером</p>
+    <div class="grid">
+      <div class="card span-6">
+        <h3>Фокус на результат</h3>
+        <p>План для входу, матеріали та скрипти.<br>Ти працюєш – ми підсвічуємо, як робити це ефективніше.</p>
+      </div>
+      <div class="card span-6">
+        <h3>Чиста математика</h3>
+        <p>$100 за кожного залученого партнера.<br>Бонуси та підвищення за стабільність і якість.<br>Без затримок без «але».</p>
+      </div>
+      <div class="card span-4">
+        <h3>Навчання</h3>
+        <p>Швидкий старт, чек-листи, шаблони повідомлень.<br>Допомога у спілкуванні з лідерами думок.</p>
+      </div>
+      <div class="card span-4">
+        <h3>Підтримка щодня</h3>
+        <p>Онлайн-чат, відповіді протягом дня, міні-коучинг.<br>Не кидаємо нікого «сам на сам».</p>
+      </div>
+      <div class="card span-4">
+        <h3>Зростання</h3>
+        <p>Менеджери з 5+ міс. досвіду отримують $1500+ / міс.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="why">
   <div class="container">
@@ -166,6 +196,31 @@
       <div class="card span-6">
         <h3>Матеріали</h3>
         <p>Скрипти, кейси, допомога на перших етапах.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="container">
+    <h2 class="section-title">Як це працює</h2>
+    <p class="section-sub">П’ять простих кроків від заявки до виплат</p>
+    <div class="steps">
+      <div class="card step">
+        <h3>Заявка</h3>
+        <p>Пишеш нам в Telegram – коротко про досвід і ресурси.</p>
+      </div>
+      <div class="card step">
+        <h3>Онбординг</h3>
+        <p>Отримуєш матеріали, повну підтримку, показові кейси.</p>
+      </div>
+      <div class="card step">
+        <h3>Запуск</h3>
+        <p>Стартуємо з перевірених майданчиків і даємо фідбек.</p>
+      </div>
+      <div class="card step">
+        <h3>Виплати</h3>
+        <p>$100 за кожного нового партнера. Бонуси за стабільність і обсяг.</p>
       </div>
     </div>
   </div>
@@ -187,12 +242,24 @@
       <summary>Як швидко проходить онбординг?</summary>
       <p>Протягом 24-48 годин після першого контакту.</p>
     </details>
+    <details>
+      <summary>З ким ми працюємо?</summary>
+      <p>Україна + країни СНД. Ніша – трейдинг, крипта, фінансові сервіси.</p>
+    </details>
   </div>
 </section>
 
 <footer>
   <a class="btn" href="https://t.me/ibmofficial" target="_blank" rel="noopener">КОНТАКТ</a>
 </footer>
+
+<script>
+  const sword = document.getElementById('sword');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY * 0.35;
+    sword.style.transform = `translateY(${y}px)`;
+  });
+</script>
 
 </body>
 </html>
